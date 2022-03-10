@@ -35,4 +35,10 @@ while(j < array.length) {
     j++;
 }
 
+// Imprimir de mayor al menor
+// valorInicial, condicion, razonDeCambio
+for (var i = array.length - 1; i >= 0;  i--) {
+    console.log('array[' + i + '] = ' + array[i]);
+}
+
 // Imprimir los valores de una matriz
