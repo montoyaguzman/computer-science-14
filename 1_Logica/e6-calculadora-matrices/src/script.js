@@ -10,35 +10,39 @@ var matriz2 = [
     [1, 4, 1]
 ];
 
-var resultado = [];
-
-// Imprimir un arreglo
-var array = [2, 4, 6, 8, 10];
-// array[0] = 2
-// array[1] = 4
-// ...
-// array[4] = 10
-// console.log('array[0] = ', array[0])
-// console.log('array[1] = ', array[1])
-
-// valorInicial, condicion, razonDeCambio
-for (var i = 0; i < array.length; i++) {
-    console.log('array[' + i + '] = ' + array[i]);
-}
-
-// valorInicial
-var j = 0;
-// condicion
-while(j < array.length) {
-    console.log('w array[' + j + '] = ' + array[j]);
-    // razonDeCambio
-    j++;
-}
-
-// Imprimir de mayor al menor
-// valorInicial, condicion, razonDeCambio
-for (var i = array.length - 1; i >= 0;  i--) {
-    console.log('array[' + i + '] = ' + array[i]);
-}
-
+var resultado = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+];
+console.log('iniciando');
+debugger;
 // Imprimir los valores de una matriz
+for(var i = 0; i < matriz1.length; i++) {
+    for(var j = 0; j < matriz1.length; j++) {
+        // console.log('m['+i+']'+'['+j+']', matriz1[i][j]);
+        // console.log('suma =>', matriz1[i][j] + matriz2[i][j]);
+        resultado[i][j] = matriz1[i][j] + matriz2[i][i];
+    }
+}
+
+console.log('MATRIZ 1')
+console.log('matriz1', matriz1);
+console.log('MATRIZ 2')
+console.log('matriz2', matriz2);
+console.log('RESULTADO')
+console.log('resultado', resultado);
+// for(var m = 0; m < matriz1.length; m++) {
+//     console.log('matriz1', matriz1[m]);
+// }
+
+// console.log('MATRIZ 2')
+// for(var n = 0; n < matriz2.length; n++) {
+//     console.log('matriz2', matriz2[n]);
+// }
+
+// console.log('RESULTADO')
+// for(var l = 0; l < resultado.length; l++) {
+//     console.log('res', resultado[l]);
+// }
+

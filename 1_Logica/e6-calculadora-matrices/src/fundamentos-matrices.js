@@ -29,3 +29,33 @@ console.log('matriz', matriz[6]);
 console.log('matriz', matriz[7]);
 console.log('matriz', matriz[1][3].name);
 console.log('9 = ', matriz[8].calificaciones[1]);
+
+
+// Imprimir un arreglo
+var array2 = [2, 4, 6, 8, 10];
+// array[0] = 2
+// array[1] = 4
+// ...
+// array[4] = 10
+// console.log('array[0] = ', array[0])
+// console.log('array[1] = ', array[1])
+
+// valorInicial, condicion, razonDeCambio
+for (var i = 0; i < array2.length; i++) {
+    console.log('array[' + i + '] = ' + array2[i]);
+}
+
+// valorInicial
+var j = 0;
+// condicion
+while(j < array2.length) {
+    console.log('w array[' + j + '] = ' + array2[j]);
+    // razonDeCambio
+    j++;
+}
+
+// Imprimir de mayor al menor
+// valorInicial, condicion, razonDeCambio
+for (var i = array2.length - 1; i >= 0;  i--) {
+    console.log('array[' + i + '] = ' + array2[i]);
+}
