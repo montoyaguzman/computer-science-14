@@ -1,14 +1,47 @@
 var resultado = 0;
-var numero1 = 100;
-var numero2 = 20;
-var operacion = 'resta';
+var numero1 = prompt("Ingrese numero 1");
+var numero2 = prompt("Ingrese numero 2");
+var operacion = prompt("Ingrese operando");
 
-if (operacion === 'suma') {
-    resultado = numero1 + numero2;
-} else if (operacion === 'resta') {
-    resultado = numero1 - numero2;
+numero1 = parseInt(numero1);
+numero2 = parseInt(numero2);
+
+// CONDICIONES
+// VALOR === VALOR_PARA_COMPROBAR
+// if (operacion === '+') {
+//     console.log(typeof numero1)
+//     resultado = numero1 + numero2;
+// } else if (operacion === '-') {
+//     resultado = numero1 - numero2;
+// } else if (operacion === '*') {
+//     resultado = numero1 * numero2;
+// } else if (operacion === '/') {
+//     resultado = numero1 / numero2;
+// } else {
+//     console.log('ingresaste algo incorrecto');
+// }
+
+// VALOR
+switch(operacion) {
+    case '+': // VALOR_PARA_COMPROBAR
+        suma();
+    break;
+    case '-': // VALOR_PARA_COMPROBAR
+        resultado = numero1 - numero2;
+    break;
+    case '*': // VALOR_PARA_COMPROBAR
+        resultado = numero1 * numero2;
+    break;
+    case '/': // VALOR_PARA_COMPROBAR
+        resultado = numero1 / numero2;
+    break;
+    default:
+        console.log('ingresaste algo incorrecto');
+    break;
 }
-// resultado = numero1 * numero2;
-// resultado = numero1 / numero2;
+
+function suma(numero1, numero2) {
+    resultado = numero1 + numero2;
+}
 
 console.log('resultado: ', resultado);
