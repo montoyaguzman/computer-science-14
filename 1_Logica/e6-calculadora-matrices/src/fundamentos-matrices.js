@@ -12,6 +12,7 @@ var matriz = [
     { id: 1, name: 'bruce' }, 
     "soy muy bueno con matrices",
     99999,
+    { calificaciones: [10, 9, 10] }
 ];
 
 console.log('array', array);
@@ -27,3 +28,4 @@ console.log('matriz', matriz[5]);
 console.log('matriz', matriz[6]);
 console.log('matriz', matriz[7]);
 console.log('matriz', matriz[1][3].name);
+console.log('9 = ', matriz[8].calificaciones[1]);
