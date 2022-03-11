@@ -40,9 +40,7 @@ const calculadora = (numero1, numero2, operando) => {
    return resultado;
 }
 
-main() // el hoisting de js SUBE las funciones
-
-function main() {
+let main = () => {
   let n1 = prompt("Ingrese numero 1");
   let n2 = prompt("Ingrese numero 2");
   let ope = prompt("Ingrese operacion");
@@ -52,4 +50,4 @@ function main() {
   console.log('respuesta: ', res);
 }
 
-
+main()
