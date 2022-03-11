@@ -31,3 +31,5 @@ let myVariable2 = 'un valor'; // declarar e inicializar
 
 // var otroNumero = 10;
 // console.log(otroNumero);
+
+
