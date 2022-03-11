@@ -38,6 +38,7 @@ switch(operacion) {
     default:
         console.log('ingresaste algo incorrecto');
     break;
+    // break finalizar la ejecucion de un bloque de codigo, en cuanto aparece lo finaliza
 }
 
 function suma(numero1, numero2) {
