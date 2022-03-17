@@ -12,7 +12,11 @@ const myLanguages = [
   "Cobol",
 ];
 
-const listLanguages = document.querySelector("#list-languages");
+const listLanguagesElement = document.querySelector("#list-languages");
+const languagePendingElement = document.querySelector("#language-pending");
+
+const languageComplete = 0 
+const languagePending = myLanguages.length - languageComplete
 
 const renderElementList = (name) => {
   let language = document.createElement("li");
@@ -22,10 +26,12 @@ const renderElementList = (name) => {
     "d-flex",
     "justify-content-between"
   );
-  listLanguages.appendChild(language);
+  listLanguagesElement.appendChild(language);
 };
 
 myLanguages.forEach(renderElementList);
+languagePendingElement.innerText = languagePending
+
 
 // `<li class="list-group-item d-flex justify-content-between">
 //   HTML
