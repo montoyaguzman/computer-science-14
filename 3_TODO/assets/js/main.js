@@ -1,24 +1,28 @@
 const myLanguages = [
-  "Javascript",
-  "Python",
-  "PHP",
-  "Java",
-  "Swift",
-  "Ruby",
-  "C#",
-  "C++",
-  "Go",
-  "Dart",
-  "Cobol",
+  { name: "Javascript", complete: false, start: true },
+  { name: "Python", complete: false, start: false },
+  { name: "PHP", complete: false, start: false },
+  { name: "Java", complete: false, start: false },
+  { name: "Swift", complete: false, start: false },
+  { name: "Ruby", complete: true, start: false },
+  { name: "C#", complete: false, start: false },
+  { name: "C++", complete: false, start: false },
+  { name: "Go", complete: false, start: false },
+  { name: "Dart", complete: true, start: false },
+  { name: "Cobol", complete: false, start: false },
 ];
 
 const listLanguagesElement = document.querySelector("#list-languages");
 const languagePendingElement = document.querySelector("#language-pending");
+const languageCompleteElement = document.querySelector("#language-complete");
+const languageAllElement = document.querySelector("#language-all");
 
-const languageComplete = 0 
-const languagePending = myLanguages.length - languageComplete
+const languageComplete = myLanguages.filter(
+  ({ complete }) => complete === true
+);
+const languagePending = myLanguages.length - languageComplete.length;
 
-const renderElementList = (name) => {
+const renderElementList = ({ name }) => {
   let language = document.createElement("li");
   language.innerText = name;
   language.classList.add(
@@ -30,8 +34,9 @@ const renderElementList = (name) => {
 };
 
 myLanguages.forEach(renderElementList);
-languagePendingElement.innerText = languagePending
-
+languagePendingElement.innerText = languagePending;
+languageCompleteElement.innerText = languageComplete.length;
+languageAllElement.innerText = myLanguages.length;
 
 // `<li class="list-group-item d-flex justify-content-between">
 //   HTML
@@ -40,3 +45,19 @@ languagePendingElement.innerText = languagePending
 //     <i class="bi bi-check-circle-fill text-success"></i>
 //   </div>
 // </li>`
+
+// Diferentes manera de escribir condicionales
+// const aprendido = false
+// aprendido && console.log(aprendido)
+// aprendido ? console.log(aprendido) : console.log('no aprendido')
+// if (aprendido === true ){
+//   console.log(aprendido)
+// } else {
+//   console.log('no aprendido')
+// }
+
+// Ejemplo de destructuración
+// const {name, complete} = myLanguages[4]
+// console.log(myLanguages[4].name, myLanguages[4].complete)
+// console.log(name, complete)
+// console.table(myLanguages)
