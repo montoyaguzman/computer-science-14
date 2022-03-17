@@ -1,16 +1,31 @@
+const myLanguages = [
+  "Javascript",
+  "Python",
+  "PHP",
+  "Java",
+  "Swift",
+  "Ruby",
+  "C#",
+  "C++",
+  "Go",
+  "Dart",
+  "Cobol",
+];
+
 const listLanguages = document.querySelector("#list-languages");
 
-for (var i = 0; i < 10; i++) {
+const renderElementList = (name) => {
   let language = document.createElement("li");
-  language.innerText = i + 1;
-  if (i % 2) {
-    language.classList.add("fs-1");
-    listLanguages.appendChild(language);
-  } else {
-    language.classList.add("fs-2");
-    listLanguages.appendChild(language);
-  }
-}
+  language.innerText = name;
+  language.classList.add(
+    "list-group-item",
+    "d-flex",
+    "justify-content-between"
+  );
+  listLanguages.appendChild(language);
+};
+
+myLanguages.forEach(renderElementList);
 
 // `<li class="list-group-item d-flex justify-content-between">
 //   HTML
