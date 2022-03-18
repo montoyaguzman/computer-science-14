@@ -96,8 +96,3 @@ deleteButtonsElements.forEach(deleteLanguage);
 // console.log(myLanguages[4].name, myLanguages[4].complete)
 // console.log(name, complete)
 // console.table(myLanguages)
-
-const saveButtonElement = document.querySelector("#save");
-saveButtonElement.addEventListener("click", () => {
-  console.log("GUARDAR 🤢");
-});
