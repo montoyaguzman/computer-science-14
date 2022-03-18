@@ -64,7 +64,7 @@ const renderElementList = ({ name, complete, start }) => {
 
 const deleteLanguage = (button, index) => {
   button.addEventListener("click", () => {
-    console.log(myLanguages[index]);
+    console.log(myLanguages.indexOf(myLanguages[index]));
   });
 };
 
@@ -73,13 +73,13 @@ languagePendingElement.innerText = languagePending;
 languageCompleteElement.innerText = languageComplete.length;
 languageAllElement.innerText = myLanguages.length;
 
-// Eventos
-
+// Asignando eventos
 const deleteButtonsElements = Array.from(
   document.querySelectorAll("button.bi-trash3-fill")
 );
 
 deleteButtonsElements.forEach(deleteLanguage);
+
 
 // Diferentes manera de escribir condicionales
 // const aprendido = false
