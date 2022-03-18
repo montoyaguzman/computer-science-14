@@ -22,6 +22,10 @@ const languageComplete = myLanguages.filter(
 );
 const languagePending = myLanguages.length - languageComplete.length;
 
+function getButtons() {
+  console.log("todos los botones");
+}
+
 const renderElementList = ({ name, complete, start }) => {
   // Crear elementos necesario
   let listElement = document.createElement("li");
@@ -34,7 +38,7 @@ const renderElementList = ({ name, complete, start }) => {
   iconPlay.classList.add("bi", "bi-play-circle-fill", "text-primary");
   iconCheck.classList.add("bi", "bi-check-circle-fill", "text-success");
   iconPause.classList.add("bi", "bi-pause-circle-fill", "text-warning");
-  deleteButton.classList.add("bi", "bi-trash3-fill", "text-danger")
+  deleteButton.classList.add("bi", "bi-trash3-fill", "text-danger");
 
   listElement.innerText = name;
   listElement.classList.add(
@@ -55,13 +59,27 @@ const renderElementList = ({ name, complete, start }) => {
   } else {
     iconBox.appendChild(iconPause);
   }
-  iconBox.appendChild(deleteButton)
+  iconBox.appendChild(deleteButton);
+};
+
+const deleteLanguage = (button, index) => {
+  button.addEventListener("click", () => {
+    console.log(myLanguages[index]);
+  });
 };
 
 myLanguages.forEach(renderElementList);
 languagePendingElement.innerText = languagePending;
 languageCompleteElement.innerText = languageComplete.length;
 languageAllElement.innerText = myLanguages.length;
+
+// Eventos
+
+const deleteButtonsElements = Array.from(
+  document.querySelectorAll("button.bi-trash3-fill")
+);
+
+deleteButtonsElements.forEach(deleteLanguage);
 
 // Diferentes manera de escribir condicionales
 // const aprendido = false
@@ -78,3 +96,8 @@ languageAllElement.innerText = myLanguages.length;
 // console.log(myLanguages[4].name, myLanguages[4].complete)
 // console.log(name, complete)
 // console.table(myLanguages)
+
+const saveButtonElement = document.querySelector("#save");
+saveButtonElement.addEventListener("click", () => {
+  console.log("GUARDAR 🤢");
+});
