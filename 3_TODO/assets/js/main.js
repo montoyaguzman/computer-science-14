@@ -22,11 +22,6 @@ const languageComplete = myLanguages.filter(
 );
 const languagePending = myLanguages.length - languageComplete.length;
 
-
-
-
-
-
 const renderElementList = ({ name, complete, start }) => {
   // Crear elementos necesario
   let listElement = document.createElement("li");
@@ -34,10 +29,12 @@ const renderElementList = ({ name, complete, start }) => {
   let iconPlay = document.createElement("i");
   let iconPause = document.createElement("i");
   let iconCheck = document.createElement("i");
+  let deleteButton = document.createElement("button");
   // Asignamos las clases correspondientes a los iconos
   iconPlay.classList.add("bi", "bi-play-circle-fill", "text-primary");
   iconCheck.classList.add("bi", "bi-check-circle-fill", "text-success");
   iconPause.classList.add("bi", "bi-pause-circle-fill", "text-warning");
+  deleteButton.classList.add("bi", "bi-trash3-fill", "text-danger")
 
   listElement.innerText = name;
   listElement.classList.add(
@@ -52,25 +49,14 @@ const renderElementList = ({ name, complete, start }) => {
   // Insertar i en div
   if (complete) {
     iconBox.appendChild(iconCheck);
-  } else if (start && !complete) { // start && complete === false
+  } else if (start && !complete) {
+    // start && complete === false
     iconBox.appendChild(iconPlay);
   } else {
     iconBox.appendChild(iconPause);
   }
+  iconBox.appendChild(deleteButton)
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 myLanguages.forEach(renderElementList);
 languagePendingElement.innerText = languagePending;
