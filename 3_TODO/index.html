@@ -24,15 +24,15 @@
         <div class="col-lg-6 py-5">
           <form class="g-3 border rounded">
             <div class="col-8 mb-3 p-3">
-              <label for="task" class="form-label">What should I learn?</label>
+              <label for="language" class="form-label">What should I learn?</label>
               <input
                 type="text"
                 class="form-control"
-                id="task"
-                name="task"
+                id="language"
+                name="language"
                 placeholder="Programming language"
               />
-              <button type="submit" class="btn btn-primary mt-3">
+              <button id="save" type="submit" class="btn btn-primary mt-3">
                 Save
                 <i class="bi bi-save2-fill"></i>
               </button>
@@ -42,61 +42,22 @@
         <div class="col-lg-6 py-5">
           <div class="border rounded px-3 mb-3">
             <div class="row">
-              <div class="col-6">
-                Languages complete
-                <h5 class="mt-2">0</h5>
+              <div class="col-4">
+                All languages
+                <h5 class="mt-2" id="language-all">0</h5>
               </div>
-              <div class="col-6">
+              <div class="col-4">
+                Languages complete
+                <h5 class="mt-2" id="language-complete">0</h5>
+              </div>
+              <div class="col-4">
                 Languages pending
-                <h5 class="mt-2">0</h5>
+                <h5 class="mt-2" id="language-pending">0</h5>
               </div>
             </div>
           </div>
           <div class="border rounded px-3">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item d-flex justify-content-between">
-                HTML
-                <div>
-                  <i class="bi bi-trash-fill text-danger"></i>
-                  <i class="bi bi-check-circle-fill text-success"></i>
-                </div>
-              </li>
-              <li class="list-group-item d-flex justify-content-between">
-                JS
-                <div>
-                  <i class="bi bi-trash-fill text-danger"></i>
-                  <i class="bi bi-check-circle-fill text-success"></i>
-                </div>
-              </li>
-              <li class="list-group-item d-flex justify-content-between">
-                CSS
-                <div>
-                  <i class="bi bi-trash-fill text-danger"></i>
-                  <i class="bi bi-check-circle-fill text-success"></i>
-                </div>
-              </li>
-              <li class="list-group-item d-flex justify-content-between">
-                SQL
-                <div>
-                  <i class="bi bi-trash-fill text-danger"></i>
-                  <i class="bi bi-check-circle-fill text-success"></i>
-                </div>
-              </li>
-              <li class="list-group-item d-flex justify-content-between">
-                React
-                <div>
-                  <i class="bi bi-trash-fill text-danger"></i>
-                  <i class="bi bi-check-circle-fill text-success"></i>
-                </div>
-              </li>
-              <li class="list-group-item d-flex justify-content-between">
-                Node
-                <div>
-                  <i class="bi bi-trash-fill text-danger"></i>
-                  <i class="bi bi-check-circle-fill text-success"></i>
-                </div>
-              </li>
-            </ul>
+            <ul id="list-languages" class="list-group list-group-flush"></ul>
           </div>
         </div>
       </div>
@@ -107,6 +68,7 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/list.js"></script>
+    <script src="./assets/js/form.js"></script>
   </body>
 </html>
