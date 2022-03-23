@@ -1,12 +1,8 @@
 const myLanguages = [
   { name: "Javascript", complete: false, start: true },
-  { name: "Python", complete: false, start: false },
-  { name: "PHP", complete: false, start: false },
-  { name: "Java", complete: false, start: false },
   { name: "Swift", complete: false, start: false },
   { name: "Ruby", complete: true, start: false },
   { name: "C#", complete: false, start: false },
-  { name: "C++", complete: false, start: false },
   { name: "Go", complete: false, start: false },
   { name: "Dart", complete: true, start: false },
   { name: "Cobol", complete: false, start: false },

@@ -22,9 +22,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 py-5">
-          <form class="g-3 border rounded">
+          <form id="language-form" class="g-3 border rounded">
             <div class="col-8 mb-3 p-3">
-              <label for="language" class="form-label">What should I learn?</label>
+              <label for="language" class="form-label"
+                >What should I learn?</label
+              >
               <input
                 type="text"
                 class="form-control"
@@ -32,7 +34,15 @@
                 name="language"
                 placeholder="Programming language"
               />
-              <button id="save" type="submit" class="btn btn-primary mt-3">
+              <div class="checbox-container">
+                <input type="checkbox" id="complete" name="complete" />
+                <label for="complete">Complete</label>
+              </div>
+              <div class="checbox-container">
+                <input type="checkbox" id="start" name="start" />
+                <label for="start">Start</label>
+              </div>
+              <button type="submit" class="btn btn-primary mt-3">
                 Save
                 <i class="bi bi-save2-fill"></i>
               </button>
