@@ -1,12 +1,4 @@
-const myLanguages = [
-  { name: "Javascript", complete: false, start: true },
-  { name: "Swift", complete: false, start: false },
-  { name: "Ruby", complete: true, start: false },
-  { name: "C#", complete: false, start: false },
-  { name: "Go", complete: false, start: false },
-  { name: "Dart", complete: true, start: false },
-  { name: "Cobol", complete: false, start: false },
-];
+const myLanguages = JSON.parse(localStorage.getItem("@myLanguages"));
 
 const listLanguagesElement = document.querySelector("#list-languages");
 const languagePendingElement = document.querySelector("#language-pending");
@@ -18,11 +10,7 @@ const languageComplete = myLanguages.filter(
 );
 const languagePending = myLanguages.length - languageComplete.length;
 
-function getButtons() {
-  console.log("todos los botones");
-}
-
-const renderElementList = ({ name, complete, start }) => {
+const renderElementList = ({ name, complete, start }, index) => {
   // Crear elementos necesario
   let listElement = document.createElement("li");
   let iconBox = document.createElement("div");
@@ -35,6 +23,8 @@ const renderElementList = ({ name, complete, start }) => {
   iconCheck.classList.add("bi", "bi-check-circle-fill", "text-success");
   iconPause.classList.add("bi", "bi-pause-circle-fill", "text-warning");
   deleteButton.classList.add("bi", "bi-trash3-fill", "text-danger");
+  deleteButton.setAttribute("type", "submit");
+  deleteButton.setAttribute("index", index);
 
   listElement.innerText = name;
   listElement.classList.add(
@@ -58,24 +48,16 @@ const renderElementList = ({ name, complete, start }) => {
   iconBox.appendChild(deleteButton);
 };
 
-const deleteLanguage = (button, index) => {
-  button.addEventListener("click", () => {
-    console.log(myLanguages.indexOf(myLanguages[index]));
-  });
-};
-
-myLanguages.forEach(renderElementList);
-languagePendingElement.innerText = languagePending;
-languageCompleteElement.innerText = languageComplete.length;
-languageAllElement.innerText = myLanguages.length;
+// Elminando lenguajes de la lista
 
 // Asignando eventos
-const deleteButtonsElements = Array.from(
-  document.querySelectorAll("button.bi-trash3-fill")
-);
-
-deleteButtonsElements.forEach(deleteLanguage);
-
+listLanguagesElement.addEventListener("click", (event) => {
+  if (event.target.tagName === "BUTTON") {
+    let position = event.target.getAttribute("index");
+    myLanguages.splice(parseInt(position), 1);
+    localStorage.setItem("@myLanguages", JSON.stringify(myLanguages));
+  }
+});
 
 // Diferentes manera de escribir condicionales
 // const aprendido = false
@@ -92,3 +74,7 @@ deleteButtonsElements.forEach(deleteLanguage);
 // console.log(myLanguages[4].name, myLanguages[4].complete)
 // console.log(name, complete)
 // console.table(myLanguages)
+
+// console.log('list.js')
+
+// const desdeList = 1
