@@ -6,6 +6,13 @@ let search = document.querySelector("#search");
 search.addEventListener("keypress", (event) => {
   list.innerHTML = "";
 
+  /**
+   * EVENT
+   */
+  // console.log('event', event);
+  // console.log('event.target', event.target);
+  // console.log('event.target.value', event.target.value);
+
   // if (event.target.value === "") {
   //   printUsers(users);
   // } else {
