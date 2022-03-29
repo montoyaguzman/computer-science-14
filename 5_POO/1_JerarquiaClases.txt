@@ -1,0 +1,80 @@
+Tipos de datos simples
+* Enteros
+* Decimales
+* Boolean
+* String
+* Character
+
+Tipos de datos complejos
+* Array
+* Objecto
+
+-------------------  => Nombre de la clase
+Celular
+------------------- =======> Atributos/Caracteristicas
+marca: String
+isConector: Boolean
+conector: Objeto
+sistemaOperativo:
+imei: String
+bateria: Objeto
+modelo: String
+camara: Objeto
+precio: Number
+------------------- =======> Metodos/Funciones
+hacerLlamadas(numeroRecepcion, lada) : void
+recibirLlamadas(activaIdenficador) : numeroRemitente
+tomarFotos() : foto
+
+-------------------
+Conector
+-------------------
+
+-------------------
+Bateria
+-------------------
+
+-------------------
+SistemaOperativo
+-------------------
+
+
+
+-------------------
+Computadora
+-------------------
+pantalla
+teclado
+color
+precio
+-------------------
+encender()
+apagar()
+-------------------
+
+
+-------------------
+Laptop
+-------------------
+touchpad
+isPortable
+bateriaInterna
+monitorIntegrado
+-------------------
+tomaFotos()
+cerrarTapa()
+-------------------
+
+-------------------
+CompuEscritorio
+-------------------
+case
+requiereCables
+-------------------
+conectarTeclado()
+conecarCamara()
+-------------------
+
+
+
+
