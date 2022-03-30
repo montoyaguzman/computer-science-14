@@ -16,9 +16,11 @@ search.addEventListener("keypress", (event) => {
   // if (event.target.value === "") {
   //   printUsers(users);
   // } else {
-  let searching = users.filter(({ name }) =>
-    name.toLocaleLowerCase().includes(event.target.value.toLocaleLowerCase())
+  let searching = users.filter(({ name }) => {
+      return name.toLocaleLowerCase().includes(event.target.value.toLocaleLowerCase())
+    }
   );
+  console.log('searching ', searching)
   printUsers(searching);
   // }
 });
@@ -45,8 +47,11 @@ let printUsers = (users) => {
     contact.appendChild(colRigth);
     colRigth.appendChild(rowTop);
     colRigth.appendChild(rowBottom);
+
   });
 };
+
+console.log('printUsers ', printUsers([]))
 
 // fetch("../assets/data/users.json")
 fetch("https://jsonplaceholder.typicode.com/users")
