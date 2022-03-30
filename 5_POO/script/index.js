@@ -51,6 +51,12 @@ const data = sensei.deliverCode();
 data.ppt = 'excel.xls';
 console.log(data);
 
+/**
+ * Los inicialiazadores de objetos no son optimos cuando requerimos
+ * crear muchos objetos porque repetiriamos el codigo y la estrctura 
+ * del objeto.
+ */
+
 // const pokemon2 = {
 //     name: 'ivysaur',
 //     type: 'grass',
@@ -69,29 +75,115 @@ console.log(data);
 //     weight: 55,
 // };
 
-/* Funcion constructora */
-function createPokemon(name, type) {
+/**  
+ * Funcion constructora 
+ * Seria una mejora, consiste de una funcion que crea objetos
+ * y los devuelve
+ * */
+function createPokemon(name, type, power) {
     const pokemon = {
         name: name,
-        type: type
+        type: type,
+        power: power,
+        attack: function (bonus) { 
+            console.log(`${this.power}`, bonus);
+        },
+        isAlive: function(points) {
+            if (points > 1) {
+                return true;
+            }
+            return false;
+        }
+    };
+    // pokemon.attack = function (bonus) { 
+    //     console.log(`${this.power}`, bonus);
+    // };
+    // pokemon.isAlive = function(points) {
+    //     if (points > 1) {
+    //         return true;
+    //     }
+    //     return false;
+    // };
+    return pokemon;
+}
+
+
+const pikachu = createPokemon('pikachu', 'electric', 'thunder');
+console.log('pikachu: ', pikachu);
+pikachu.attack(10);
+
+/** 
+ * Funcion constructora con create object 
+ * Con ayuda de la funcion create de Object podemos crear
+ * objetos con una sintaxis ligeramente mas limpia
+ * */
+function createPokemon2(name, type, power) {
+    const pokemon = Object.create(createPokemon2.prototype);
+    pokemon.name = name,
+    pokemon.type = type,
+    pokemon.power = power,
+    pokemon.attack = function (bonus) { 
+        console.log(`${this.power}`, bonus);
+    },
+    pokemon.isAlive = function(points) {
+        if (points > 1) {
+            return true;
+        }
+        return false;
     }
     return pokemon;
 }
-const pikachu = createPokemon('pikachu', 'electric');
-console.log(pikachu);
 
-/* Funcion constructora new */
-function Pokemon(name, type) {
-    this.name = name;
-    this.type = type;
+/**
+ * Para agregar metodos compartidos a los objetos nos
+ * valemos de la propiedad prototype que es una propiedad
+ * que todos los objetos que creemos heredad de "arriba"
+ * concretemente desde Object, esto es lo que se conoce como
+ * cadena de prototipos en JS.
+ */
+createPokemon2.prototype.specialAttack =  function () { 
+    console.log('== ataque especial ==');
 };
 
-const bulbasaur = new Pokemon('bulbasaur', 'grass');
-console.log(bulbasaur);
-const charmander = new Pokemon('charmander', 'fire');
-console.log(charmander);
-const charizard = new Pokemon();
-console.log(charizard);
+var pikachu2 = createPokemon2('pikachu', 'electric', 'thunder');
+console.log('pikachu2: ', pikachu2);
+pikachu2.specialAttack();
+
+/**
+ *  Funcion constructora new 
+ * A partir de ES6, se incluyo las keywords this y new.
+ * Una funcion constructora invocado con new, atutomaticamente devuelve un objeto.
+ * This es una palabra reservada que es el objeto que ejecuta la funcion.
+*/
+function Pokemon(name, type, power) {
+    this.name = name;
+    this.type = type;
+    this.power = power;
+    this.attack = function (bonus) { 
+        console.log(`${this.power}`, bonus);
+    };
+    this.isAlive = function(points) {
+        if (points > 1) {
+            return true;
+        }
+        return false;
+    }
+};
+
+Pokemon.prototype.specialAttack =  function () { 
+    console.log('== ataque especial ==');
+};
+
+const bulbasaur = new Pokemon('bulbasaur', 'grass', 'razor blades');
+console.log('bulbasaur: ', bulbasaur);
+bulbasaur.attack(20);
+bulbasaur.specialAttack();
+const charmander = new Pokemon('charmander', 'fire', 'flamethower');
+console.log('charmander: ', charmander);
+charmander.attack(30);
+// Objeto sin parametros para el constructor se creará con valores undefined
+// const charizard = new Pokemon();
+// console.log(charizard);
 
 /* Prototype y como compartir metodos */
 
