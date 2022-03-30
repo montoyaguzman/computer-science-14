@@ -75,6 +75,22 @@ console.log(data);
 //     weight: 55,
 // };
 
+
+/** Compartir metodos
+ * Se crea el siguiente objeto para compartir metodos para compartir metodos
+*/
+const pokemonMethods = {
+    attack: function (bonus) { 
+        console.log(`${this.power}`, bonus);
+    },
+    isAlive: function(points) {
+        if (points > 1) {
+            return true;
+        }
+        return false;
+    }
+}
+
 /**  
  * Funcion constructora 
  * Seria una mejora, consiste de una funcion que crea objetos
@@ -85,15 +101,8 @@ function createPokemon(name, type, power) {
         name: name,
         type: type,
         power: power,
-        attack: function (bonus) { 
-            console.log(`${this.power}`, bonus);
-        },
-        isAlive: function(points) {
-            if (points > 1) {
-                return true;
-            }
-            return false;
-        }
+        attack: pokemonMethods.attack,
+        isAlive: pokemonMethods.isAlive,
     };
     // pokemon.attack = function (bonus) { 
     //     console.log(`${this.power}`, bonus);
@@ -119,18 +128,11 @@ pikachu.attack(10);
  * */
 function createPokemon2(name, type, power) {
     const pokemon = Object.create(createPokemon2.prototype);
-    pokemon.name = name,
-    pokemon.type = type,
-    pokemon.power = power,
-    pokemon.attack = function (bonus) { 
-        console.log(`${this.power}`, bonus);
-    },
-    pokemon.isAlive = function(points) {
-        if (points > 1) {
-            return true;
-        }
-        return false;
-    }
+    pokemon.name = name;
+    pokemon.type = type;
+    pokemon.power = power;
+    attack = pokemonMethods.attack;
+    isAlive = pokemonMethods.isAlive;
     return pokemon;
 }
 
@@ -140,6 +142,9 @@ function createPokemon2(name, type, power) {
  * que todos los objetos que creemos heredad de "arriba"
  * concretemente desde Object, esto es lo que se conoce como
  * cadena de prototipos en JS.
+ */
+/**
+ * Prototype y herencia prototipal
  */
 createPokemon2.prototype.specialAttack =  function () { 
     console.log('== ataque especial ==');
@@ -159,15 +164,8 @@ function Pokemon(name, type, power) {
     this.name = name;
     this.type = type;
     this.power = power;
-    this.attack = function (bonus) { 
-        console.log(`${this.power}`, bonus);
-    };
-    this.isAlive = function(points) {
-        if (points > 1) {
-            return true;
-        }
-        return false;
-    }
+    this.attack = pokemonMethods.attack;
+    this.isAlive = pokemonMethods.isAlive;
 };
 
 Pokemon.prototype.specialAttack =  function () { 
@@ -185,6 +183,5 @@ charmander.attack(30);
 // const charizard = new Pokemon();
 // console.log(charizard);
 
-/* Prototype y como compartir metodos */
-
 /* Hacer todo eso de arriba class, this, new => sugar syntaxis */
+
