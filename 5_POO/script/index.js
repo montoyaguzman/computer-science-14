@@ -184,4 +184,52 @@ charmander.attack(30);
 // console.log(charizard);
 
 /* Hacer todo eso de arriba class, this, new => sugar syntaxis */
+class Poke {
+    constructor(name, type, power) {
+        this.name = name;
+        this.type = type;
+        this.power = power;
+    }
+    
+    attack(bonus) { 
+        console.log(`${this.power}`, bonus);
+    }
 
+    alive(points) { // Funcion que si retorna un valor
+        if (points > 1) {
+            return true;
+        }
+        return false;
+    }
+}
+
+class FlightPoke extends Poke {
+    constructor(name, type, power, alas) {
+        super(name, type, power);
+        this.alas = alas;
+    }
+    flight() {
+        console.log('yo vuelo');
+    }
+}
+
+class WaterPoke extends Poke {
+    constructor(name, type, power, aletas) {
+        super(name, type, power);
+        this.aletas = aletas;
+    }
+    swim() {
+        console.log('yo nado');
+    }
+}
+
+const squirtle = new WaterPoke('Squirtle', 'Water', 'pulse water', 'tengo 4 aletas');
+const pidgey = new FlightPoke('Pidgey', 'Flight', 'aerial ace', 'tengo 2 alas');
+
+console.log(squirtle)
+squirtle.attack(99);
+squirtle.swim();
+pidgey.attack(10);
+pidgey.flight();
+// squirtle.flight();
+// La linea anterior produce un error porque squirtle no tiene ese metodo
