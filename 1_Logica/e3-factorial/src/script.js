@@ -1,12 +1,24 @@
 console.log('hola mundo');
 
-var numero = 8;
-var resultado = 1;
+/**
+ * 1. Valor de inicio
+ * 2. Condicion
+ * 3. Razon de cambio
+ */
 
-while (numero - 1 >= 1) {
+var numero = 8;
+var resultado = 1; // 1
+
+while (numero - 1 >= 1) { // 2
     resultado = resultado * (numero);
-    numero--;
+    numero--; // 3
 };
+
+
+// (1 ; 2 ; 3)
+// for (var i = 1; i <= NUMERO; i=i+1) {
+//     FACTORIAL = FACTORIAL * i;
+// }
 
 console.log('resultado: ', resultado);
 
